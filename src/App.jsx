@@ -1,11 +1,31 @@
 import { useState } from "react";
 import "./App.css";
+
 function App() {
   const [count, setCount] = useState(0);
   const [limit, setLimit] = useState();
+
   const handleLimitChange = (e) => {
     setLimit(Number(e.target.value));
   };
+
+  const handleIncrement = () => {
+    if (limit === undefined || count < limit) {
+      setCount(count + 1);
+    } else {
+      alert(`You have reached the limit of ${limit}`);
+    }
+  };
+
+  const handleDecrement = () => {
+    setCount((count) => count - 1);
+  };
+
+  const handleReset = () => {
+    setCount(0);
+    setLimit("");
+  };
+
   return (
     <>
       <div className="text-center mt-40 text-2xl ">
@@ -19,29 +39,20 @@ function App() {
         />
         <div className="mt-5">
           <button
-            onClick={() => {
-              if (limit === undefined || count < limit) {
-                setCount(count + 1);
-              } else {
-                alert(`You have reached the limit of ${limit}`);
-              }
-            }}
+            onClick={handleIncrement}
             className="bg-slate-400 p-1 rounded-lg"
           >
             Increment
           </button>
           <button
             disabled={count < 1}
-            onClick={() => setCount((count) => count - 1)}
+            onClick={handleDecrement}
             className="ml-3 bg-slate-400 p-1 rounded-lg"
           >
             Decrement
           </button>
           <button
-            onClick={() => {
-              setCount(0);
-              setLimit("");
-            }}
+            onClick={handleReset}
             className="ml-3 bg-slate-400 p-1 rounded-lg"
           >
             Reset
