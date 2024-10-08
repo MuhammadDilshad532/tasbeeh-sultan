@@ -13,7 +13,7 @@ function App() {
         <input
           type="text"
           value={limit}
-          placeholder="enter a limit"
+          placeholder="Enter a limit"
           onChange={handleLimitChange}
           className="border border-black block ml-[40%] mt-5 "
         />
@@ -22,6 +22,8 @@ function App() {
             onClick={() => {
               if (limit === undefined || count < limit) {
                 setCount(count + 1);
+              } else {
+                alert(`You have reached the limit of ${limit}`);
               }
             }}
             className="bg-slate-400 p-1 rounded-lg"
