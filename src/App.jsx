@@ -34,7 +34,10 @@ function App() {
             Decrement
           </button>
           <button
-            onClick={() => setCount((count) => 0)}
+            onClick={() => {
+              setCount(0);
+              setLimit("");
+            }}
             className="ml-3 bg-slate-400 p-1 rounded-lg"
           >
             Reset
