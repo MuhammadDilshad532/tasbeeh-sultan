@@ -19,9 +19,11 @@ function App() {
         />
         <div className="mt-5">
           <button
-            onClick={() =>
-              setCount((count) => (count < limit ? count + 1 : count))
-            }
+            onClick={() => {
+              if (limit === undefined || count < limit) {
+                setCount(count + 1);
+              }
+            }}
             className="bg-slate-400 p-1 rounded-lg"
           >
             Increment
