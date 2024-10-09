@@ -10,7 +10,7 @@ function App() {
   };
 
   const handleIncrement = () => {
-    if (limit === undefined || count < limit) {
+    if ( limit === "" || limit === undefined || count < limit) {
       setCount(count + 1);
     } else {
       alert(`You have reached the limit of ${limit}`);
